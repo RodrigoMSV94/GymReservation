@@ -1,16 +1,5 @@
-# Compiled class file
+# === Java ===
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
 *.nar
@@ -18,7 +7,55 @@
 *.zip
 *.tar.gz
 *.rar
+*.log
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# Maven
+target/
+model/target/
+dependency-reduced-pom.xml
+release.properties
+buildNumber.properties
+.mvn/timing.properties
+
+# Gradle (por si usas en el futuro)
+.gradle/
+build/
+!gradle-wrapper.jar
+
+# Java compiler crash logs
 hs_err_pid*
 replay_pid*
+
+# Javadoc local output
+doc/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# BlueJ
+*.ctxt
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IntelliJ specific to module/classpath
+/modules.xml
+/workspace.xml
+/tasks.xml
+/usage.statistics.xml
+/shelf/
+
+# === OS/system files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Others you might want to exclude ===
+*.swp
+*.swo
+*.bak
+*.tmp
