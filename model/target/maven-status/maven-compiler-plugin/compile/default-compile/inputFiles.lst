@@ -1,0 +1,7 @@
+D:\Rodrigo\Estudios\Cursos_Extras\2025\MtioCode_Arquitectura_Hexagonal\hexagonal-architecture-java-4\model\src\main\java\com\mitocode\reservation\model\customer\CustomerId.java
+D:\Rodrigo\Estudios\Cursos_Extras\2025\MtioCode_Arquitectura_Hexagonal\hexagonal-architecture-java-4\model\src\main\java\com\mitocode\reservation\model\gymclass\ClassId.java
+D:\Rodrigo\Estudios\Cursos_Extras\2025\MtioCode_Arquitectura_Hexagonal\hexagonal-architecture-java-4\model\src\main\java\com\mitocode\reservation\model\gymclass\GymClass.java
+D:\Rodrigo\Estudios\Cursos_Extras\2025\MtioCode_Arquitectura_Hexagonal\hexagonal-architecture-java-4\model\src\main\java\com\mitocode\reservation\model\reservation\NotEnoughSpotsAvailableException.java
+D:\Rodrigo\Estudios\Cursos_Extras\2025\MtioCode_Arquitectura_Hexagonal\hexagonal-architecture-java-4\model\src\main\java\com\mitocode\reservation\model\reservation\Reservation.java
+D:\Rodrigo\Estudios\Cursos_Extras\2025\MtioCode_Arquitectura_Hexagonal\hexagonal-architecture-java-4\model\src\main\java\com\mitocode\reservation\model\reservation\ReservationNotFoundException.java
+D:\Rodrigo\Estudios\Cursos_Extras\2025\MtioCode_Arquitectura_Hexagonal\hexagonal-architecture-java-4\model\src\main\java\com\mitocode\reservation\model\reservation\ReservationStatus.java
