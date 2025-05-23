@@ -1,0 +1,144 @@
+{
+  "info": {
+    "name": "GymReservation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Buscar Clase por tipo o descripción",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/gym-classes?query=yoga",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "gym-classes"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "yoga"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Obtener reservaciones",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/reservations/:customerId",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "reservations",
+            ":customerId"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "customerId",
+              "value": "test1@email.com"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reservar clase",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/reservations/:customerId/reservation?classId=GYM12345&quantity=3",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "reservations",
+            ":customerId",
+            "reservation"
+          ],
+          "query": [
+            {
+              "key": "classId",
+              "value": "GYM12345"
+            },
+            {
+              "key": "quantity",
+              "value": "3"
+            }
+          ],
+          "variable": [
+            {
+              "key": "customerId",
+              "value": "test1@email.com"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cancelar reservación",
+      "event": [],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/reservations/:customerId/class/:classId",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "reservations",
+            ":customerId",
+            "class",
+            ":classId"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "classId",
+              "value": "GYM12345"
+            },
+            {
+              "key": "customerId",
+              "value": "test1@email.com"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": []
+}

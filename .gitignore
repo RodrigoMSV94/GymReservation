@@ -1,61 +1,35 @@
-# === Java ===
-*.class
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-*.log
-
-# Maven
 target/
-model/target/*
-dependency-reduced-pom.xml
-release.properties
-buildNumber.properties
-.mvn/timing.properties
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# Gradle (por si usas en el futuro)
-.gradle/
-build/
-!gradle-wrapper.jar
-
-# Java compiler crash logs
-hs_err_pid*
-replay_pid*
-
-# Javadoc local output
-doc/
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# BlueJ
-*.ctxt
-
-# === IntelliJ IDEA ===
+### IntelliJ IDEA ###
 .idea/
-*.iml
 *.iws
+*.iml
 *.ipr
-out/
 
-# IntelliJ specific to module/classpath
-/modules.xml
-/workspace.xml
-/tasks.xml
-/usage.statistics.xml
-/shelf/
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# === OS/system files ===
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
 .DS_Store
-Thumbs.db
-desktop.ini
-
-# === Others you might want to exclude ===
-*.swp
-*.swo
-*.bak
-*.tmp

@@ -58,7 +58,7 @@ public class RestEasyUndertowReservationApplication extends Application {
     private void initMysqlAdapters(){
         EntityManagerFactory entityManagerFactory =
                 EntityManagerFactoryFactory.createMysqlEntityManagerFactory(
-                        "", "", ""
+                        "jdbc:mysql://localhost:3306/reservation", "root", "test"
                 );
 
         reservationRepository = new JpaReservationRepository(entityManagerFactory);
