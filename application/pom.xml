@@ -21,9 +21,9 @@
             <groupId>com.mitocode.reservation</groupId>
             <artifactId>model</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <classifier>tests</classifier> <!-- indica las clases de test -->
-            <type>test-jar</type> <!-- indica utilizar el test del jar -->
-            <scope>test</scope> <!-- solo para la etapa de test -->
+            <classifier>tests</classifier>
+            <type>test-jar</type>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -11,7 +11,7 @@
 
 # Maven
 target/
-model/target/
+model/target/*
 dependency-reduced-pom.xml
 release.properties
 buildNumber.properties
