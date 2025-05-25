@@ -41,11 +41,13 @@ public class JpaReservationRepository implements ReservationRepository {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Reservation> findReservationsByCustomerId(CustomerId customerId) {
         return ReservationMapper.toModelEntities(springDataRepository.findByCustomerId(customerId.email()));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Reservation> findByCustomerIdAndClassId(CustomerId customerId, ClassId classId) {
         return springDataRepository.findByCustomerIdAndClassId(customerId.email(), classId.value())
                 .flatMap(ReservationMapper::toModelEntityOptional);

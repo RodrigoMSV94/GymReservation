@@ -57,7 +57,7 @@ public abstract class AbstractReservationRepositoryTest {
         List<Reservation> reservations = reservationRepository.findReservationsByCustomerId(customerId);
 
         assertThat(reservations).isNotEmpty();
-        assertThat(reservations.get(0).gymClass()).isEqualTo(TEST_GYM_CLASS_1);
+        assertThat(reservations.get(0).gymClass().id()).isEqualTo(TEST_GYM_CLASS_1.id());
         assertThat(reservations.get(0).spotsReserved()).isEqualTo(1);
     }
 
