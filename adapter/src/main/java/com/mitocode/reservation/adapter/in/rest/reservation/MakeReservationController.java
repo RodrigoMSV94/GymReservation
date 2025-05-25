@@ -1,33 +1,31 @@
 package com.mitocode.reservation.adapter.in.rest.reservation;
 
-
 import com.mitocode.reservation.application.port.in.reservation.GymClassNotFoundException;
 import com.mitocode.reservation.application.port.in.reservation.MakeReservationUseCase;
 import com.mitocode.reservation.model.customer.CustomerId;
 import com.mitocode.reservation.model.gymclass.ClassId;
 import com.mitocode.reservation.model.reservation.NotEnoughSpotsAvailableException;
 import com.mitocode.reservation.model.reservation.Reservation;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import static com.mitocode.reservation.adapter.in.rest.common.ClassIdParser.parseClassId;
 import static com.mitocode.reservation.adapter.in.rest.common.ControllerCommons.clientErrorException;
 import static com.mitocode.reservation.adapter.in.rest.common.CustomerIdParser.parseCustomerId;
 
-@Path("/reservations")
-@Produces(MediaType.APPLICATION_JSON)
+
+@RestController
+@RequestMapping("/reservations")
 @RequiredArgsConstructor
 public class MakeReservationController {
     private final MakeReservationUseCase makeReservationUseCase;
 
-    @POST
-    @Path("/{customerId}/reservation")
+    @PostMapping("/{customerId}/reservation")
     public ReservationWebModel reservationWebModel(
-            @PathParam("customerId") String customerIdString,
-            @QueryParam("classId") String classIdString,
-            @QueryParam("quantity") int quantity){
+            @PathVariable("customerId") String customerIdString,
+            @RequestParam(value = "classId", required = false) String classIdString,
+            @RequestParam(value = "quantity", required = false) int quantity){
         CustomerId customerId = parseCustomerId(customerIdString);
         ClassId classId = parseClassId(classIdString);
 
@@ -35,9 +33,9 @@ public class MakeReservationController {
             Reservation reservation = makeReservationUseCase.makeReservation(customerId, classId, quantity);
             return ReservationWebModel.fromDomainModel(reservation);
         }catch (GymClassNotFoundException e){
-            throw clientErrorException(Response.Status.BAD_REQUEST, "The requested class does not exist");
+            throw clientErrorException(HttpStatus.BAD_REQUEST, "The requested class does not exist");
         }catch (NotEnoughSpotsAvailableException e){
-            throw clientErrorException(Response.Status.BAD_REQUEST, "Only %d spots available".formatted(e.availableSpots()));
+            throw clientErrorException(HttpStatus.BAD_REQUEST, "Only %d spots available".formatted(e.availableSpots()));
         }
 
     }

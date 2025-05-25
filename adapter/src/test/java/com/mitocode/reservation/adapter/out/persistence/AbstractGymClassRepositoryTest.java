@@ -1,25 +1,20 @@
 package com.mitocode.reservation.adapter.out.persistence;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import com.mitocode.reservation.application.port.out.persistence.GymClassRepository;
-import com.mitocode.reservation.model.gymclass.GymClass;
 import com.mitocode.reservation.model.gymclass.ClassId;
+import com.mitocode.reservation.model.gymclass.GymClass;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 import java.util.Optional;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-public abstract class AbstractGymClassRepositoryTest<T extends GymClassRepository> {
+import static org.assertj.core.api.Assertions.assertThat;
 
-    private T gymClassRepository;
+public abstract class AbstractGymClassRepositoryTest {
 
-    @BeforeEach
-    void initRepository() {
-        gymClassRepository = createGymClassRepository();
-    }
-
-    protected abstract T createGymClassRepository();
+    @Autowired
+    GymClassRepository gymClassRepository;
 
     @Test
     void givenTestGymClassesAndATestClassId_findById_returnsATestGymClass() {

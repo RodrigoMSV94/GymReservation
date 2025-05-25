@@ -1,0 +1,21 @@
+package com.mitocode.reservation.adapter.in.rest.common;
+
+
+import lombok.Getter;
+import org.springframework.http.ResponseEntity;
+
+public class ClientErrorException extends RuntimeException {
+
+    @Getter
+    private final ResponseEntity<ErrorEntity> response;
+
+    public ClientErrorException(ResponseEntity<ErrorEntity> response) {
+        super(getMessage(response));
+        this.response = response;
+    }
+
+    public static String getMessage(ResponseEntity<ErrorEntity> response) {
+        ErrorEntity body = response.getBody();
+        return body != null ? body.errorMessage() : null;
+    }
+}
