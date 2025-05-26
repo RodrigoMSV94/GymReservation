@@ -3,6 +3,7 @@ package com.mitocode.reservation.adapter.in.rest.gymclass;
 import com.mitocode.reservation.application.port.in.gymclass.FindGymClassUseCase;
 import com.mitocode.reservation.model.gymclass.GymClass;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -17,6 +18,7 @@ import static com.mitocode.reservation.adapter.in.rest.gymclass.GymClassControll
 import static com.mitocode.reservation.model.gymclass.TestGymClassFactory.createTestClass;
 import static io.restassured.RestAssured.given;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -25,12 +27,33 @@ class GymClassControllerTest {
     private static final GymClass TEST_GYM_CLASS_1 = createTestClass(30, 20);
     private static final GymClass TEST_GYM_CLASS_2 = createTestClass(25, 10);
 
+    private String token;
+
     //Para obtener el puerto del servidor de pruebas
     @LocalServerPort
     private Integer TEST_PORT;
 
     @MockBean
     FindGymClassUseCase findGymClassUseCase;
+
+    @BeforeEach
+    void LoadToken() {
+        token = given()
+                .port(TEST_PORT)
+                .param("grant_type", "password")
+                .param("realm", "spring-keycloak-realm")
+                .param("client_id", "spring-keycloak-client")
+                .param("client_secret", "ATj3hjJCNY3b9VtmfyHoUKVFlYZ7vBf9")
+                .param("username", "user1")
+                .param("password", "user1")
+                .headers("Content-Type", "application/x-www-form-urlencoded")
+                .when()
+                .post("http://localhost:8383/realms/spring-keycloak-realm/protocol/openid-connect/token")
+                .then()
+                .extract()
+                .jsonPath()
+                .getString("access_token");
+    }
 
     @Test
     void givenAQueryAndAListOfGymClasses_findGymClasses_requestsGymClassesViaQueryAndReturnsThem() {
@@ -41,6 +64,7 @@ class GymClassControllerTest {
 
         Response response = given()
                 .port(TEST_PORT)
+                .header(AUTHORIZATION, "Bearer " + token)
                 .queryParam("query", query)
                 .get("/gym-classes")
                 .then()
@@ -54,6 +78,7 @@ class GymClassControllerTest {
     void givenANullQuery_findGymClasses_returnsError() {
         Response response = given()
                 .port(TEST_PORT)
+                .header(AUTHORIZATION, "Bearer " + token)
                 .get("/gym-classes")
                 .then()
                 .extract()
@@ -70,6 +95,7 @@ class GymClassControllerTest {
 
         Response response = given()
                 .port(TEST_PORT)
+                .header(AUTHORIZATION, "Bearer " + token)
                 .queryParam("query", query)
                 .get("/gym-classes")
                 .then()

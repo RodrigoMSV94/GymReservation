@@ -34,8 +34,8 @@ Solo se debe especificar como -Dspring.profiles.active=inmemory o  -Dspring.prof
 ### ? Levantar base de datos MySQL en Docker
 
 ```bash
-    docker run --name hexagon-mysql -d -p 3306:3306 \
-  -e MYSQL_DATABASE=reservation \
-  -e MYSQL_ROOT_PASSWORD=test \
-  mysql:8.1
+docker run --name hexagon-mysql -d -p3306:3306 -e MYSQL_DATABASE=reservation -e MYSQL_ROOT_PASSWORD=test mysql:8.1
+
+### ? Levantar KeyCloak en Docker
+docker run -d --name keycloak-hexagonal -p 8383:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:25.0.6 start-dev
 

@@ -1,0 +1,95 @@
+{
+  "name": "Keycloak",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "Generar Token",
+      "filename": "Generar Token.bru",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:8383/realms/spring-keycloak-realm/protocol/openid-connect/token",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "grant_type",
+              "value": "password",
+              "enabled": true
+            },
+            {
+              "name": "client_id",
+              "value": "spring-keycloak-client",
+              "enabled": true
+            },
+            {
+              "name": "client_secret",
+              "value": "ATj3hjJCNY3b9VtmfyHoUKVFlYZ7vBf9",
+              "enabled": true
+            },
+            {
+              "name": "username",
+              "value": "user1",
+              "enabled": true
+            },
+            {
+              "name": "password",
+              "value": "user1",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [
+            {
+              "type": "text",
+              "name": "client_secret",
+              "value": "iPzwjsNS2AkA9AIIXARnHiE2keX7xbtl",
+              "enabled": true
+            },
+            {
+              "type": "text",
+              "name": "username",
+              "value": "user2",
+              "enabled": true
+            },
+            {
+              "type": "text",
+              "name": "password",
+              "value": "user2",
+              "enabled": true
+            },
+            {
+              "type": "text",
+              "name": "",
+              "value": "",
+              "enabled": true
+            }
+          ],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "function test({ response, expect }) {\n  const body = JSON.parse(response.body);\n  const accessToken = body.access_token;\n\n  // Guardar token en variable global\n  if (accessToken) {\n    bru.setGlobalVariable(\"access_token\", accessToken);\n  }\n\n  // Validaciones opcionales\n  expect(accessToken).toBeDefined();\n  expect(response.status).toBe(200);\n}",
+        "docs": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "keycloak",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0,
+    "filesCount": 0
+  }
+}

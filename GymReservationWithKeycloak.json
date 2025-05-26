@@ -1,0 +1,180 @@
+{
+  "name": "GymReservationWithKeycloak",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "Buscar Clase por tipo o descripción",
+      "filename": "Buscar Clase por tipo o descripción.bru",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:8080/gym-classes?query=pilates",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "query",
+            "value": "pilates",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJnZHJOSlVDTDMyOTlMS0YyMDI4TTk1LTJsSXNEN2FjUG5ZdFloZ2FkTjJvIn0.eyJleHAiOjE3NDgyMTQ3NDYsImlhdCI6MTc0ODIxNDQ0NiwianRpIjoiYTc0MzJmOGItMDM0OS00NDNiLTgyNzUtZTg1NGEzMGJmOGYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MzgzL3JlYWxtcy9zcHJpbmcta2V5Y2xvYWstcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTI2NmU5YmMtYWQ5MC00MGQ5LWIyMGQtNGFhZjE0ODUwMDdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3ByaW5nLWtleWNsb2FrLWNsaWVudCIsInNpZCI6Ijg2ZjFiZWRkLTFmMmEtNGU4Yy04NDlkLWMxNmFjYTk4NTI3MiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtc3ByaW5nLWtleWNsb2FrLXJlYWxtIiwic3VwZXJfYWRtaW4iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3ByaW5nLWtleWNsb2FrLWNsaWVudCI6eyJyb2xlcyI6WyJ2aWV3LXJlc2VydmF0aW9uIiwiY2FuY2VsLXJlc2VydmF0aW9uIiwidmlldy1neW1jbGFzcyIsIm1ha2UtcmVzZXJ2YXRpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyMSJ9.Hi9jQm1Pgv9_R4_QSkZ4AOSfq6uDS9jJdEc9Di61hxENuhB0aDtH95EcGbxM8gmoqGSs3In-B3pkST_YGqnCwoKi-0zpaOkPbPTYnruiXoRG8qKA4PV50u8M29cOZ4RReTa6KAzWylK4qIuZO5j_BS0a-hsZ4_lCAZVOeSeC_SZ1NsREac-uDdGGti1jtVp9Kaiqb6vbPHeovpWIZyu4UGtH8Ev1d-wZSqhBhs6I0Ex_X-AsqdbssZcF65fs4oivhtRiiDW2tBA0OxKTBgrj0IOMJwSJ-3BPyrDtG4NW05VVCDBDqeYMPcpCw7F6MYqV-5jMN0rKZL9lWVCnmmEXrQ"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Cancelar reservación",
+      "filename": "Cancelar reservación.bru",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:8080/reservations/:customerId/class/:classId",
+        "method": "DELETE",
+        "headers": [],
+        "params": [
+          {
+            "name": "classId",
+            "value": "GYM11223",
+            "type": "path",
+            "enabled": true
+          },
+          {
+            "name": "customerId",
+            "value": "test1@email.com",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJnZHJOSlVDTDMyOTlMS0YyMDI4TTk1LTJsSXNEN2FjUG5ZdFloZ2FkTjJvIn0.eyJleHAiOjE3NDgyMTQ3NDYsImlhdCI6MTc0ODIxNDQ0NiwianRpIjoiYTc0MzJmOGItMDM0OS00NDNiLTgyNzUtZTg1NGEzMGJmOGYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MzgzL3JlYWxtcy9zcHJpbmcta2V5Y2xvYWstcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTI2NmU5YmMtYWQ5MC00MGQ5LWIyMGQtNGFhZjE0ODUwMDdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3ByaW5nLWtleWNsb2FrLWNsaWVudCIsInNpZCI6Ijg2ZjFiZWRkLTFmMmEtNGU4Yy04NDlkLWMxNmFjYTk4NTI3MiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtc3ByaW5nLWtleWNsb2FrLXJlYWxtIiwic3VwZXJfYWRtaW4iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3ByaW5nLWtleWNsb2FrLWNsaWVudCI6eyJyb2xlcyI6WyJ2aWV3LXJlc2VydmF0aW9uIiwiY2FuY2VsLXJlc2VydmF0aW9uIiwidmlldy1neW1jbGFzcyIsIm1ha2UtcmVzZXJ2YXRpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyMSJ9.Hi9jQm1Pgv9_R4_QSkZ4AOSfq6uDS9jJdEc9Di61hxENuhB0aDtH95EcGbxM8gmoqGSs3In-B3pkST_YGqnCwoKi-0zpaOkPbPTYnruiXoRG8qKA4PV50u8M29cOZ4RReTa6KAzWylK4qIuZO5j_BS0a-hsZ4_lCAZVOeSeC_SZ1NsREac-uDdGGti1jtVp9Kaiqb6vbPHeovpWIZyu4UGtH8Ev1d-wZSqhBhs6I0Ex_X-AsqdbssZcF65fs4oivhtRiiDW2tBA0OxKTBgrj0IOMJwSJ-3BPyrDtG4NW05VVCDBDqeYMPcpCw7F6MYqV-5jMN0rKZL9lWVCnmmEXrQ"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Obtener reservaciones",
+      "filename": "Obtener reservaciones.bru",
+      "seq": 3,
+      "request": {
+        "url": "http://localhost:8080/reservations/:customerId",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "customerId",
+            "value": "test1@email.com",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJnZHJOSlVDTDMyOTlMS0YyMDI4TTk1LTJsSXNEN2FjUG5ZdFloZ2FkTjJvIn0.eyJleHAiOjE3NDgyMTQ3NDYsImlhdCI6MTc0ODIxNDQ0NiwianRpIjoiYTc0MzJmOGItMDM0OS00NDNiLTgyNzUtZTg1NGEzMGJmOGYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MzgzL3JlYWxtcy9zcHJpbmcta2V5Y2xvYWstcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTI2NmU5YmMtYWQ5MC00MGQ5LWIyMGQtNGFhZjE0ODUwMDdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3ByaW5nLWtleWNsb2FrLWNsaWVudCIsInNpZCI6Ijg2ZjFiZWRkLTFmMmEtNGU4Yy04NDlkLWMxNmFjYTk4NTI3MiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtc3ByaW5nLWtleWNsb2FrLXJlYWxtIiwic3VwZXJfYWRtaW4iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3ByaW5nLWtleWNsb2FrLWNsaWVudCI6eyJyb2xlcyI6WyJ2aWV3LXJlc2VydmF0aW9uIiwiY2FuY2VsLXJlc2VydmF0aW9uIiwidmlldy1neW1jbGFzcyIsIm1ha2UtcmVzZXJ2YXRpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyMSJ9.Hi9jQm1Pgv9_R4_QSkZ4AOSfq6uDS9jJdEc9Di61hxENuhB0aDtH95EcGbxM8gmoqGSs3In-B3pkST_YGqnCwoKi-0zpaOkPbPTYnruiXoRG8qKA4PV50u8M29cOZ4RReTa6KAzWylK4qIuZO5j_BS0a-hsZ4_lCAZVOeSeC_SZ1NsREac-uDdGGti1jtVp9Kaiqb6vbPHeovpWIZyu4UGtH8Ev1d-wZSqhBhs6I0Ex_X-AsqdbssZcF65fs4oivhtRiiDW2tBA0OxKTBgrj0IOMJwSJ-3BPyrDtG4NW05VVCDBDqeYMPcpCw7F6MYqV-5jMN0rKZL9lWVCnmmEXrQ"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Reservar clase",
+      "filename": "Reservar clase.bru",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:8080/reservations/:customerId/reservation?classId=GYM12345&quantity=2",
+        "method": "POST",
+        "headers": [],
+        "params": [
+          {
+            "name": "classId",
+            "value": "GYM12345",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "quantity",
+            "value": "2",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "customerId",
+            "value": "test1@email.com",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJnZHJOSlVDTDMyOTlMS0YyMDI4TTk1LTJsSXNEN2FjUG5ZdFloZ2FkTjJvIn0.eyJleHAiOjE3NDgyMTQ3NDYsImlhdCI6MTc0ODIxNDQ0NiwianRpIjoiYTc0MzJmOGItMDM0OS00NDNiLTgyNzUtZTg1NGEzMGJmOGYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MzgzL3JlYWxtcy9zcHJpbmcta2V5Y2xvYWstcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTI2NmU5YmMtYWQ5MC00MGQ5LWIyMGQtNGFhZjE0ODUwMDdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3ByaW5nLWtleWNsb2FrLWNsaWVudCIsInNpZCI6Ijg2ZjFiZWRkLTFmMmEtNGU4Yy04NDlkLWMxNmFjYTk4NTI3MiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtc3ByaW5nLWtleWNsb2FrLXJlYWxtIiwic3VwZXJfYWRtaW4iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3ByaW5nLWtleWNsb2FrLWNsaWVudCI6eyJyb2xlcyI6WyJ2aWV3LXJlc2VydmF0aW9uIiwiY2FuY2VsLXJlc2VydmF0aW9uIiwidmlldy1neW1jbGFzcyIsIm1ha2UtcmVzZXJ2YXRpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyMSJ9.Hi9jQm1Pgv9_R4_QSkZ4AOSfq6uDS9jJdEc9Di61hxENuhB0aDtH95EcGbxM8gmoqGSs3In-B3pkST_YGqnCwoKi-0zpaOkPbPTYnruiXoRG8qKA4PV50u8M29cOZ4RReTa6KAzWylK4qIuZO5j_BS0a-hsZ4_lCAZVOeSeC_SZ1NsREac-uDdGGti1jtVp9Kaiqb6vbPHeovpWIZyu4UGtH8Ev1d-wZSqhBhs6I0Ex_X-AsqdbssZcF65fs4oivhtRiiDW2tBA0OxKTBgrj0IOMJwSJ-3BPyrDtG4NW05VVCDBDqeYMPcpCw7F6MYqV-5jMN0rKZL9lWVCnmmEXrQ"
+          }
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "GymReservationWithKeycloak",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0.000885009765625,
+    "filesCount": 4
+  }
+}

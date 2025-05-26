@@ -8,12 +8,12 @@ import com.mitocode.reservation.model.reservation.NotEnoughSpotsAvailableExcepti
 import com.mitocode.reservation.model.reservation.Reservation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import static com.mitocode.reservation.adapter.in.rest.common.ClassIdParser.parseClassId;
 import static com.mitocode.reservation.adapter.in.rest.common.ControllerCommons.clientErrorException;
 import static com.mitocode.reservation.adapter.in.rest.common.CustomerIdParser.parseCustomerId;
-
 
 @RestController
 @RequestMapping("/reservations")
@@ -21,6 +21,7 @@ import static com.mitocode.reservation.adapter.in.rest.common.CustomerIdParser.p
 public class MakeReservationController {
     private final MakeReservationUseCase makeReservationUseCase;
 
+    @PreAuthorize("hasRole('ROLE_spring-keycloak-client_make-reservation')")
     @PostMapping("/{customerId}/reservation")
     public ReservationWebModel reservationWebModel(
             @PathVariable("customerId") String customerIdString,

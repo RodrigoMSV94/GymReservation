@@ -7,6 +7,7 @@ import com.mitocode.reservation.model.reservation.ReservationNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import static com.mitocode.reservation.adapter.in.rest.common.ClassIdParser.parseClassId;
@@ -19,6 +20,7 @@ import static com.mitocode.reservation.adapter.in.rest.common.CustomerIdParser.p
 public class CancelReservationController {
     private final CancelReservationUseCase cancelReservationUseCase;
 
+    @PreAuthorize("hasRole('ROLE_spring-keycloak-client_cancel-reservation')")
     @DeleteMapping("/{customerId}/class/{classId}")
     public ResponseEntity<Void> cancelReservation(
             @PathVariable("customerId") String customerIdString,
