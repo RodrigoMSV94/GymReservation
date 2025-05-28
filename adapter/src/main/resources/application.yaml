@@ -3,5 +3,5 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8383/realms/spring-keycloak-realm
-          jwk-set-uri: http://localhost:8383/realms/spring-keycloak-realm/protocol/openid-connect/certs
+          issuer-uri: http://ecs-keycloak-24-dev.eu-north-1.elasticbeanstalk.com/realms/spring-keycloak-realm
+          jwk-set-uri: http://ecs-keycloak-24-dev.eu-north-1.elasticbeanstalk.com/realms/spring-keycloak-realm/protocol/openid-connect/certs

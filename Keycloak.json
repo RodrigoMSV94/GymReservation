@@ -8,7 +8,7 @@
       "filename": "Generar Token.bru",
       "seq": 2,
       "request": {
-        "url": "http://localhost:8383/realms/spring-keycloak-realm/protocol/openid-connect/token",
+        "url": "http://ecs-keycloak-24-dev.eu-north-1.elasticbeanstalk.com/realms/spring-keycloak-realm/protocol/openid-connect/token",
         "method": "POST",
         "headers": [],
         "params": [],
